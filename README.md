@@ -1,7 +1,7 @@
 # 🌊 OwnWave Studio — Local AI Video Production Workstation
 
 <p align="center">
-  <img src="frontend/public/logo.png" alt="OwnWave Studio Logo" width="140" height="140" style="border-radius: 28px; border: 1px solid rgba(139, 92, 246, 0.35); box-shadow: 0 12px 36px rgba(139, 92, 246, 0.25);" />
+  <img src="OwnWave.png" alt="OwnWave Studio Logo" width="220" height="80" style="border-radius: 28px; border: 1px solid rgba(139, 92, 246, 0.35); box-shadow: 0 12px 36px rgba(139, 92, 246, 0.25);" />
 </p>
 
 <p align="center">
