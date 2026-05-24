@@ -1,0 +1,285 @@
+@import "tailwindcss";
+
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+:root {
+  /* Background layers */
+  --bg:    #07070b;
+  --bg-2:  #0c0c12;
+  --bg-3:  #111119;
+  --bg-4:  #17172200;
+
+  /* Foreground */
+  --fg:       #eeeef5;
+  --fg-muted: #7a7a9a;
+
+  /* Brand */
+  --primary:      #7c3aed;
+  --primary-light: #8b5cf6;
+  --primary-glow: rgba(124, 58, 237, 0.3);
+  --accent:       #a78bfa;
+
+  /* Semantic */
+  --amber:    #f59e0b;
+  --emerald:  #10b981;
+  --sky:      #38bdf8;
+  --rose:     #f43f5e;
+  --fuchsia:  #e879f9;
+
+  /* Borders */
+  --border:   #1c1c2a;
+  --border-2: #272738;
+
+  /* --- Tailwind compat aliases --- */
+  --background:             var(--bg);
+  --foreground:             var(--fg);
+  --card:                   var(--bg-2);
+  --card-foreground:        var(--fg);
+  --popover:                var(--bg);
+  --popover-foreground:     var(--fg);
+  --primary-foreground:     #ffffff;
+  --secondary:              #151520;
+  --secondary-foreground:   var(--fg);
+  --muted:                  var(--bg-3);
+  --muted-foreground:       var(--fg-muted);
+  --accent-foreground:      #000000;
+  --destructive:            var(--rose);
+  --destructive-foreground: #ffffff;
+  --input:                  #0f0f18;
+  --ring:                   var(--primary);
+  --radius:                 0.75rem;
+}
+
+@theme {
+  --color-border:                   var(--border);
+  --color-input:                    var(--input);
+  --color-ring:                     var(--ring);
+  --color-background:               var(--background);
+  --color-foreground:               var(--foreground);
+  --color-primary:                  var(--primary);
+  --color-primary-foreground:       var(--primary-foreground);
+  --color-secondary:                var(--secondary);
+  --color-secondary-foreground:     var(--secondary-foreground);
+  --color-muted:                    var(--muted);
+  --color-muted-foreground:         var(--muted-foreground);
+  --color-accent:                   var(--accent);
+  --color-accent-foreground:        var(--accent-foreground);
+  --color-destructive:              var(--destructive);
+  --color-destructive-foreground:   var(--destructive-foreground);
+  --color-card:                     var(--card);
+  --color-card-foreground:          var(--card-foreground);
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: "Space Grotesk", var(--font-space-grotesk), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  overflow-x: hidden;
+  letter-spacing: -0.016em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code, pre, .font-mono, [class*="font-mono"] {
+  font-family: "JetBrains Mono", var(--font-jetbrains-mono), "Fira Code", ui-monospace, monospace !important;
+}
+
+/* ============================================================
+   KEYFRAMES
+   ============================================================ */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 8px  var(--primary-glow), 0 0 20px rgba(124,58,237,0.1); }
+  50%       { box-shadow: 0 0 20px var(--primary-glow), 0 0 50px rgba(124,58,237,0.18); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(14px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slide-in-left {
+  from { opacity: 0; transform: translateX(-14px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes gradient-shift {
+  0%   { background-position: 0%   50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0%   50%; }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes scan {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes ping-soft {
+  0%   { transform: scale(1);   opacity: 0.8; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 0.55; }
+  50%       { opacity: 1;    }
+}
+
+/* ============================================================
+   GLASS SYSTEM (3 levels)
+   ============================================================ */
+.bg-glass {
+  background: rgba(12, 12, 18, 0.70);
+  backdrop-filter: blur(18px) saturate(1.4);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+}
+
+.bg-glass-md {
+  background: rgba(10, 10, 16, 0.82);
+  backdrop-filter: blur(24px) saturate(1.5);
+  -webkit-backdrop-filter: blur(24px) saturate(1.5);
+}
+
+.bg-glass-strong {
+  background: rgba(7, 7, 11, 0.93);
+  backdrop-filter: blur(32px) saturate(1.6);
+  -webkit-backdrop-filter: blur(32px) saturate(1.6);
+}
+
+/* ============================================================
+   GRADIENT UTILITIES
+   ============================================================ */
+.gradient-text {
+  background: linear-gradient(130deg, #c4b5fd 0%, #8b5cf6 45%, #818cf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-gold {
+  background: linear-gradient(130deg, #fde68a 0%, #f59e0b 50%, #d97706 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-glow {
+  background: radial-gradient(ellipse at 50% 0%, rgba(124,58,237,0.16) 0%, transparent 70%);
+}
+
+.gradient-glow-amber {
+  background: radial-gradient(ellipse at 50% 0%, rgba(245,158,11,0.12) 0%, transparent 70%);
+}
+
+.progress-gradient {
+  background: linear-gradient(90deg, #7c3aed, #a78bfa, #6366f1);
+  background-size: 200% 100%;
+  animation: gradient-shift 2.5s ease infinite;
+}
+
+/* ============================================================
+   GLOW SHADOWS
+   ============================================================ */
+.glow-violet  { box-shadow: 0 0 20px rgba(124,58,237,0.35), 0 0 55px rgba(124,58,237,0.12); }
+.glow-amber   { box-shadow: 0 0 18px rgba(245,158,11,0.35), 0 0 45px rgba(245,158,11,0.12); }
+.glow-emerald { box-shadow: 0 0 18px rgba(16,185,129,0.35), 0 0 45px rgba(16,185,129,0.12); }
+.glow-rose    { box-shadow: 0 0 18px rgba(244,63,94,0.35),  0 0 45px rgba(244,63,94,0.12);  }
+.glow-sky     { box-shadow: 0 0 18px rgba(56,189,248,0.35), 0 0 45px rgba(56,189,248,0.12); }
+
+/* ============================================================
+   SHIMMER / SKELETON LOADERS
+   ============================================================ */
+.shimmer {
+  background: linear-gradient(90deg, var(--bg-2) 25%, var(--bg-3) 50%, var(--bg-2) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+}
+
+.skeleton {
+  background: linear-gradient(90deg, var(--bg-3) 25%, var(--bg-4) 50%, var(--bg-3) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: 6px;
+}
+
+/* ============================================================
+   ANIMATION UTILITIES
+   ============================================================ */
+.animate-shimmer          { animation: shimmer 1.6s ease-in-out infinite; }
+.animate-pulse-glow       { animation: pulse-glow 2.5s ease-in-out infinite; }
+.animate-float            { animation: float 5s ease-in-out infinite; }
+.animate-slide-up         { animation: slide-up 0.35s cubic-bezier(0.16,1,0.3,1) forwards; }
+.animate-slide-in-right   { animation: slide-in-right 0.3s ease-out forwards; }
+.animate-slide-in-left    { animation: slide-in-left 0.3s ease-out forwards; }
+.animate-fade-in          { animation: fade-in 0.4s ease-out forwards; }
+.animate-blink-cursor     { animation: blink-cursor 1s ease-in-out infinite; }
+.animate-gradient         { background-size: 200% 200%; animation: gradient-shift 5s ease infinite; }
+.animate-spin-slow        { animation: spin-slow 10s linear infinite; }
+.animate-ping-soft        { animation: ping-soft 1.8s ease-out infinite; }
+
+/* ============================================================
+   CARD INTERACTIONS
+   ============================================================ */
+.card-lift {
+  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.28s ease,
+              border-color 0.22s ease;
+}
+.card-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.45), 0 0 35px rgba(124,58,237,0.08);
+}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+::-webkit-scrollbar            { width: 5px; height: 5px; }
+::-webkit-scrollbar-track      { background: transparent; }
+::-webkit-scrollbar-thumb      { background: var(--border-2); border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover{ background: rgba(124,58,237,0.5); }
+
+/* ============================================================
+   SELECTION & FOCUS
+   ============================================================ */
+::selection { background: rgba(124,58,237,0.28); color: #fff; }
+
+:focus-visible {
+  outline: 2px solid rgba(124,58,237,0.65);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Range input accent */
+input[type="range"] { accent-color: var(--primary); }

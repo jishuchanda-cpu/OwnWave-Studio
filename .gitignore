@@ -1,0 +1,59 @@
+# Python virtual environments & build artifacts
+backend/venv/
+venv/
+.venv/
+ENV/
+env/
+*.pyc
+__pycache__/
+build/
+dist/
+*.egg-info/
+
+# Node.js dependencies & debug logs
+frontend/node_modules/
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Next.js build outputs
+frontend/.next/
+.next/
+out/
+.next_prod/
+
+# SQLite Database files
+backend/creator.db
+backend/creator.db-journal
+creator.db
+*.db
+*.db-journal
+
+# Project media storage & temp assets
+backend/storage/
+storage/
+temp/
+backend/storage/projects/
+frontend/public/logo.png  # (exclude generated asset from raw templates if desired, but we can keep it if it's the brand logo)
+*.mp4
+*.wav
+*.png
+*.jpg
+*.jpeg
+*.ass
+
+# Agent local logs and conversation data
+.gemini/
+.system_generated/
+*.log
+
+# OS-specific files & IDE configs
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+*.swp
