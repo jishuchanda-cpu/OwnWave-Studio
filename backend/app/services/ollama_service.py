@@ -24,8 +24,8 @@ class OllamaService:
             "stream": False,
             "options": {
                 "temperature": 0.5,
-                "num_predict": 512,   # Cap output tokens for faster CPU inference
-                "num_ctx": 2048,      # Smaller context window = less memory pressure
+                "num_predict": 2048,   # Cap output tokens to allow full storyboard generation (up to 20 scenes)
+                "num_ctx": 4096,      # Increased context size to prevent truncation during long generations
             }
         }
         
