@@ -28,7 +28,7 @@
 
 
 <div align="center">
-  <img src="./public/localhost_3000_.png" alt="Logo" width="auto" height="auto">
+  <img src="./public/OwnWave Studio.png" alt="Logo" width="auto" height="auto">
   <p align="center">Home Page</p>
   <img src="./public/Screenshot (10).png" alt="Logo" width="auto" height="auto">
   <p align="center">New Project Create</p>
