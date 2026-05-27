@@ -539,6 +539,4 @@ Distributed under the MIT License. See [LICENSE](LICENSE) for more details.
 
 ## 27. Support & Contact
 For business inquiries, collaborations, or feature proposals:
-*   **GitHub Issues**: [Open an issue on the tracker](https://github.com/Jishu32/OwnWave-Studio/issues)
-*   **Email**: jishuchanda3@gmail.com
-*   **Repository Remote**: [https://github.com/Jishu32/OwnWave-Studio.git](https://github.com/Jishu32/OwnWave-Studio.git)
+*   **Email**: jishu.chanda@codeclouds.com
